@@ -10,5 +10,10 @@ int main()
     printf("enter the time in 12 hr format");
     scanf("%d:%d %1c %1c" , &hours ,&minutes , &indicator1 , &indicator2);  // this is the main problem from here everything is just documentation
 
+    if(indicator2 == '\n')
+    {
+    
+        printf("hello\n");
+    }
     return 0;
 }
