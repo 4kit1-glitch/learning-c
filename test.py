@@ -8,4 +8,3 @@ for char in first_name:
 	break
 
 print(last_name,f",{initial} ")
-
