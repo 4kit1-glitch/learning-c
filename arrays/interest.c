@@ -1,0 +1,35 @@
+// program calculates the interest of a 100$ over a given period and over a given interest rate
+
+#include<stdio.h>
+#define RATES_NUM ((sizeof(value)) / (sizeof(value[0])))
+#define INITIAL_BALANCE 100.00
+
+int main()
+{
+    int years,rate;
+    double value[5];
+
+    printf("enter the rate: ");
+    scanf("%d",&rate);
+    printf("enter the number of years: ");
+    scanf("%d",&years);
+
+    printf("years");
+
+    for(int i = 0; i< RATES_NUM ; i++)
+    {
+        printf("%6d",(rate + i));
+
+        value[i] = INITIAL_BALANCE;
+    }
+    printf("\n");
+
+    for (int i = 0; i < RATES_NUM; i++)
+    {
+        printf("");
+    }
+    
+
+
+
+}
