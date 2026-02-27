@@ -6,27 +6,33 @@
 
 int main()
 {
-    int years,rate;
+    int num_years,rate;
     double value[5];
 
     printf("enter the rate: ");
     scanf("%d",&rate);
     printf("enter the number of years: ");
-    scanf("%d",&years);
+    scanf("%d",&num_years);
 
     printf("years");
 
     for(int i = 0; i< RATES_NUM ; i++)
     {
-        printf("%6d",(rate + i));
+        printf("%6d%%",(rate + i));
 
         value[i] = INITIAL_BALANCE;
     }
     printf("\n");
 
-    for (int i = 0; i < RATES_NUM; i++)
+    for (int years = 1; years < num_years; years++)
     {
-        printf("");
+        printf("%3d   ",years);
+        for(int i = 0; i < RATES_NUM; i++)
+        {
+            value[i] += value[i] * (rate + i) / 100.0;
+            printf("%7.2f$",value[i]);
+        }
+        printf("\n");
     }
     
 
