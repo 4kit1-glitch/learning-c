@@ -1,4 +1,5 @@
 // program calculates the interest of a 100$ over a given period and over a given interest rate
+// from c programming a mordern approach
 
 #include<stdio.h>
 #define RATES_NUM ((sizeof(value)) / (sizeof(value[0])))
