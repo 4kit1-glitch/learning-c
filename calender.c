@@ -1,6 +1,7 @@
 // program prints a one month  calender
 // very poor code not effective to redo tmmr and readjust the loops
 // tobe updated and completed later
+// edited by KENGAH IRENEAUS
 #include<stdio.h>
 
 int main()
