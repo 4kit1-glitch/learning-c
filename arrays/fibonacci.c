@@ -10,12 +10,10 @@ int main()
 
     printf("the numbers are: ");
 
-    for(int i = 2 ; i < N ; i++ )
-    {
+    for(int i = 2 ; i < N ; i++ ){
         fib_num[i] = fib_num[i-2] + fib_num[i-1];
     }
-    for(int i = 0; i < N; i++)
-    {
+    for(int i = 0; i < N; i++){
         printf("%d,",fib_num[i]);
     }
 
