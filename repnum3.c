@@ -51,8 +51,6 @@ int main()
 
     }
     while (cnd == true);
-    
-    
 
     return 0;
 }
