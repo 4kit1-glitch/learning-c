@@ -3,7 +3,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int pow(int, int);
+int power(int, int);
 
 int main()
 {
@@ -12,20 +12,20 @@ int main()
     printf("enter the number and the exponent(num^exponent): ");
     scanf(" %d^%d", &num, &exp);
 
-    result = pow(num, exp);
+    result = power(num, exp);
 
     printf("%d\n", result);
 
-    
+
     exit(EXIT_SUCCESS);
 }
 
-int pow(int x, int n)
+int power(int x, int n)
 {
     if(n == 0){
         return 1;
     }
     else{
-        return x * pow(x, n - 1);
+        return x * power(x, n - 1);
     }
 }
