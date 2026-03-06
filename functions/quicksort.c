@@ -5,8 +5,8 @@
 #define N 10
 
 void input(int arr[]);
-void quick_sort(int arr[], int high, int low);
-int split(int arr[], int high, int low);
+void quick_sort(int arr[], int low, int high);
+int split(int arr[], int low, int high);
 void output(int arr[]);
 
 int main()
@@ -15,8 +15,9 @@ int main()
     int high = N - 1, low = 0;
 
     input(a);
-    printf("the sorted array is: \n");
-    quick_sort(a, high, low);
+    output(a);
+    printf("\nthe sorted array is: \n");
+    quick_sort(a, 0, N - 1);
     output(a);
 
 
@@ -25,14 +26,14 @@ int main()
 
 void input(int arr[])
 {
-    printf("enter the elements to sort");
+    printf("enter the elements to sort: ");
     
     for(int i = 0; i < N; i++){
         scanf("%d", &arr[i]);
     }
 }
 
-void quick_sort(int arr[], int high, int low)
+void quick_sort(int arr[], int low, int high)
 {
     int middle;
 
@@ -40,13 +41,13 @@ void quick_sort(int arr[], int high, int low)
         return;
     }
 
-    middle = split(arr, high, low);
+    middle = split(arr, low, high);
 
-    quick_sort(arr, middle -1, low);
-    quick_sort(arr, high, middle + 1);
+    quick_sort(arr, low, middle - 1);
+    quick_sort(arr, middle + 1, high);
 }
 
-int split(int arr[], int high, int low)
+int split(int arr[], int low, int high)
 {
     int part_element = arr[low];
 
@@ -62,7 +63,7 @@ int split(int arr[], int high, int low)
         while(low < high && arr[low] <= part_element){
             low++;
 
-            if(high <= low){
+            if(low >= high){
                 break;
             }
             arr[high--] = arr[low];
