@@ -1,4 +1,4 @@
-// implements the quicksort algorithm;;;
+// implements the quicksort algorithm
 
 #include<stdio.h>
 
