@@ -116,7 +116,7 @@ int main()
             }
             
         }
-        if(walk_area[i+1][j] != '.'
+        if (walk_area[i+1][j] != '.'
             || walk_area[i-1][j] != '.'
             || walk_area[i][j+1] != '.'
             || walk_area[i][j-1] != '.'
