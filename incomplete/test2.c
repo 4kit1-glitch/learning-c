@@ -3,10 +3,10 @@
 
 int main(){
     int num = 1;
-    char test
+    char txt = 'r' ;
 
-    if(isalpha(num)){
-        printf("as expected: \n");
+    if(isalnum(txt)){
+        printf("as expected: %c \n", toupper(txt));
     }
     else{
         printf("hello\n");
