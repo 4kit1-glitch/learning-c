@@ -24,6 +24,16 @@ int gdc(int num1, int num2){
     r = num1 % num2;
     gdc(num2, r);
 }
+int num_digits(int num){
+    const int DIV = 10;
+    int count = 0;
+
+    do {
+        num /= DIV;
+        count++;
+    }
+    while(num != 0);
+}
 
 int main(){
 
