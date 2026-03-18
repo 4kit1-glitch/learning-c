@@ -33,11 +33,35 @@ int num_digits(int num){
         count++;
     }
     while(num != 0);
+
+    return count;
+}
+int digit(int num, int k){
+    int DIV = 10;
+    int result;
+
+    if(num_digits(num) < k){
+        return 0;
+    }
+    else if(k == 1){
+        return num % DIV;
+    }
+    return((num / DIV), (k - 1));
+
+}
+int f(int a, int b){
+    printf("a = %d, b = %d\n", a, b);
+    return a+b;
+}
+void swap(int a, int b){
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
 }
 
 int main(){
-
-
+    int a = 1; int 
 
 
     return 0;
