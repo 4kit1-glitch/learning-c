@@ -12,6 +12,7 @@ int frequency(char word1[], char word2[], int freq_arr[]);
 int main(){
     char word1[50];
     char word2[50];
+    int freq_arr[SIZE] = {0};
 
     input(word1, word2);
     
@@ -53,6 +54,15 @@ int word_lenght(char word[]){
     return lenght;
 }
 int frequency(char word1[], char word2[], int freq_arr[]){
+    int lenght1 = word_lenght(word1);
+    int lenght2 = word_lenght(word2);
+    char alphabets[SIZE] = {'a', 'b', 'c', 'd', 'e', 'f',
+                            'g', 'h', 'i', 'j', 'k', 'l', 
+                            'm', 'n', 'o', 'p', 'q', 'r', 
+                            's', 't', 'u', 'v', 'w', 'x', 
+                            'y', 'z'};
+    
+    for(int i = 0; i < lenght1; )
     
 
 }
