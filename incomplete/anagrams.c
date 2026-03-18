@@ -57,6 +57,10 @@ int frequency(char word1[], char word2[], int freq_arr[]){
 
 }
 bool is_anagram1(int freq_arr[]){
-    
-
+    for(int i = 0; i < SIZE; i++){
+        if(freq_arr[i] != 0){
+            return false;
+        }
+    }
+    return true;
 }
