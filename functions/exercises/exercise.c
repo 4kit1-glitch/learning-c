@@ -53,15 +53,18 @@ int f(int a, int b){
     printf("a = %d, b = %d\n", a, b);
     return a+b;
 }
-void swap(int a, int b){
+int swap(int a, int b){
     int temp;
     temp = a;
     a = b;
     b = temp;
+
+    return a;
 }
 
 int main(){
-    int a = 1; int 
+    
+
 
 
     return 0;
