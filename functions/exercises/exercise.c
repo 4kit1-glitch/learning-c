@@ -70,10 +70,28 @@ int average(int arr[], int n){
     }
     return sum / n;
 }
+int positive_nums(int arr[], int n){
+    int count;
+    for(int i = 0; i < n; i++){
+        if(arr[i] < 0){
+            continue;
+        }
+        count++;
+    }
+    return count;
+}
+double inner_product(double a[], double b[], int n){
+    int prod;
+    int prud_sum = 0;
+    for(int i = 0; i < n; i++){
+        prod = a[i] * b[i];
+        prud_sum = prud_sum + prod;
+    }
+    return prud_sum;
+}
 
 int main(){
     
-
 
 
     return 0;
