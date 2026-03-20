@@ -22,7 +22,14 @@ void generate_random_walk(char walk_area[][AREA_SIZE]){
     
 
 }
-void print_area(char arr[][AREA_SIZE]);
+void print_area(char walk_area[][AREA_SIZE]){
+    for (int i = 0; i < AREA_SIZE; i++){
+        for (int j = 0; j < AREA_SIZE; j++){
+            printf("%c", walk_area[i][j]);
+        }
+        printf("\n");
+    }
+}
 
 
 int main(){
