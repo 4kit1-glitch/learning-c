@@ -58,9 +58,9 @@ void generate_random_walk(char walk_area[][AREA_SIZE]){
 
         // setting move boundaries
         bool out_of_bounds =
-            next_row < 0           ||
-            next_col < 0           ||
-            next_row >= AREA_SIZE  ||
+            next_row < 0            ||
+            next_col < 0            ||
+            next_row >= AREA_SIZE   ||
             next_col >= AREA_SIZE;
         
         if (out_of_bounds) {
@@ -71,14 +71,23 @@ void generate_random_walk(char walk_area[][AREA_SIZE]){
         if (!out_of_bounds) {
             row = next_row;
             col = next_col;
+            bool occupied = walk_area[row][col] != '.';
+            bool no_space =
+                walk_area[row + 1][col] != '.'  ||
+                walk_area[row][col + 1] != '.'  ||
+                walk_area[row - 1][col] != '.'  ||
+                walk_area[row][col - 1] != '.';
+
+            if (occupied) {
+                if (!out_of_bounds && no_space) {
+                    return;
+                }
+                continue;
+            }
             walk_area[next_row][next_col] = indicator + count;
             count++;
         }
-
-        // handling move rewrites
-
     }
-    
 }
 void print_area(char walk_area[][AREA_SIZE]) {
     for (int i = 0; i < AREA_SIZE; i++) {
