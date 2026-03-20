@@ -17,10 +17,10 @@ void create_walk_area(char walk_area[][AREA_SIZE]) {
         }
     }
 }
-void generate_random_walk(char walk_area[][AREA_SIZE]){
-    int move, row, col, next_row, next_col, count;
+void generate_random_walk(char walk_area[][AREA_SIZE]) {
+    int row, col, next_row, next_col, count;
     char indicator = 'A'; // indicator what diplays after every move
-    char next_move;
+    int next_move;
 
     srand((unsigned) time(NULL));
 
@@ -73,9 +73,9 @@ void generate_random_walk(char walk_area[][AREA_SIZE]){
             col = next_col;
             bool occupied = walk_area[row][col] != '.';
             bool no_space =
-                walk_area[row + 1][col] != '.'  ||
-                walk_area[row][col + 1] != '.'  ||
-                walk_area[row - 1][col] != '.'  ||
+                walk_area[row + 1][col] != '.'  &&
+                walk_area[row][col + 1] != '.'  &&
+                walk_area[row - 1][col] != '.'  &&
                 walk_area[row][col - 1] != '.';
 
             if (occupied) {
@@ -96,8 +96,8 @@ void print_area(char walk_area[][AREA_SIZE]) {
         }
         putchar('\n');
     }
+    putchar('\n');
 }
-
 
 int main() {
     char walk_area[AREA_SIZE][AREA_SIZE];
@@ -106,6 +106,13 @@ int main() {
 
     //create and print walk area
     create_walk_area(walk_area);
+    print_area(walk_area);
+
+    // walking randomly
+    generate_random_walk(walk_area);
+    
+    // after walk
+    printf("After walk:\n");
     print_area(walk_area);
 
 
