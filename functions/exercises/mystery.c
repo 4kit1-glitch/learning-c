@@ -5,15 +5,15 @@
 // this function converts from base 10 to base 2
 void pb(int n){
     int i = n;
-    printf("%d\n", i);
     if(n != 0){
         pb(n / 2);
         putchar('0' + (n % 2));
+        printf("%d", i);
     }
+    
 }
 int main(){
     pb(25);
-    putchar('h');
 
     return 0;
 }
