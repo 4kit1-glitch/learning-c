@@ -33,6 +33,13 @@ void print_area(char walk_area[][AREA_SIZE]){
 
 
 int main(){
+    char walk_area[AREA_SIZE][AREA_SIZE];
+
+    printf("before walk\n");
+
+    //create and print walk area
+    create_walk_area(walk_area);
+    print_area(walk_area);
 
 
 
