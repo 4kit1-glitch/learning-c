@@ -6,8 +6,6 @@
 #include<stdbool.h>
 #include<time.h>
 
-
-
 bool play_game(void);
 int roll_dice(void);
 
