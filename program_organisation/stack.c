@@ -13,31 +13,33 @@ void stack_status();
 void print_stack();
 void add_element();
 void front_end();
-int make_empty();
+void make_empty();
 bool is_empty();
 bool is_full();
 int push(int value);
 int pop();
 
 int main() {
-
+    front_end();
     return 0;
 }
+
 void front_end() {
     int response;
 
     printf("\t\tWelcome\n\n");
 
     while (1) {
-        printf("============================");
-        printf("Select an option:\n");
+        printf("\n============================\n");
         printf("1. Empty stack\n");
         printf("2. Check stack status\n");
         printf("3. See stack elements\n");
         printf("4. Push\n");
         printf("5. Pop\n");
-        printf("6. Exit");
-        printf("=============================");
+        printf("6. Exit\n");
+        printf("=============================\n\n");
+        
+        printf("Select an option:\n");
         scanf(" %d", &response);
 
         switch (response) {
@@ -50,13 +52,12 @@ void front_end() {
             default: printf("invalid operation!!!"); break;
         }
     }
-
 }
 
 //mask function groups
 void print_stack() {
     putchar('[');
-    for (int i = 0; i <= top; i++) {
+    for (int i = 0; i < top; i++) {
         printf("%d", contents[i]);
     }
     putchar(']');
@@ -67,7 +68,7 @@ void stack_status() {
     } else if (is_full()) {
         printf("stack completely full!!!\n");
     } else {
-        printf("There are elements in the stack but stack not full.\n");
+        printf("There are elements in the stack but stack not full.\n\n");
     }
 }
 void add_element() {
@@ -79,10 +80,10 @@ void add_element() {
     push(element);
 }
 
-
 //stack operations
-int make_empty() {
-    top = 0; 
+void make_empty() {
+    top = 0;
+    printf("Emptied the stack\n\n");
 }
 bool is_empty() {
   return top == STACK_SIZE;
@@ -101,5 +102,4 @@ int pop() {
         return -1;
     }
     return contents[--top];
-
 }
