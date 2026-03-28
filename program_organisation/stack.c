@@ -1,6 +1,7 @@
 // this program implementents some operations on the stack
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 
 #define STACK_SIZE 100
@@ -8,7 +9,7 @@
 int top = 0;
 int contents[STACK_SIZE];
 
-//operations
+//operations prototypes
 void stack_status();
 void print_stack();
 void add_element();
@@ -39,7 +40,7 @@ void front_end() {
         printf("6. Exit\n");
         printf("=============================\n\n");
         
-        printf("Select an option:\n");
+        printf("Select an option: ");
         scanf(" %d", &response);
 
         switch (response) {
@@ -48,7 +49,7 @@ void front_end() {
             case 3: print_stack(); break;
             case 4: add_element(); break;
             case 5: pop(); break;
-            case 6: return; break;
+            case 6: exit(EXIT_SUCCESS); break;
             default: printf("invalid operation!!!"); break;
         }
     }
@@ -58,7 +59,7 @@ void front_end() {
 void print_stack() {
     putchar('[');
     for (int i = 0; i < top; i++) {
-        printf("%d", contents[i]);
+        printf("%d, ", contents[i]);
     }
     putchar(']');
 }
@@ -83,7 +84,7 @@ void add_element() {
 //stack operations
 void make_empty() {
     top = 0;
-    printf("Emptied the stack\n\n");
+    printf("\nEmptied the stack\n");
 }
 bool is_empty() {
   return top == STACK_SIZE;
