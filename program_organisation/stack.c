@@ -9,13 +9,13 @@ int top = 0;
 int contents[STACK_SIZE];
 
 //operations
+void stack_status();
+void print_stack();
+void add_element();
 void front_end();
 int make_empty();
 bool is_empty();
 bool is_full();
-void stack_status();
-void print_stack();
-void add_element();
 int push(int value);
 int pop();
 
@@ -53,7 +53,7 @@ void front_end() {
 
 }
 
-//function groups
+//mask function groups
 void print_stack() {
     putchar('[');
     for (int i = 0; i <= top; i++) {
@@ -71,7 +71,12 @@ void stack_status() {
     }
 }
 void add_element() {
-    for
+    int element;
+
+    printf("enter the element you want to add: ");
+    scanf(" %d", &element);
+
+    push(element);
 }
 
 
