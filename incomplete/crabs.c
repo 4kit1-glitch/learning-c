@@ -89,8 +89,11 @@ bool play_game(void) {
         printf("Do you wanna play again(y/n): ");
         responce = getchar();
 
-        if (tolower(responce) != "y") {
+        if (tolower(responce) != 'y') {
             is_playing = false;
+        }
+        if (responce == '\n') {
+            getchar();
         }
     }
     printf("wins: %d, losses: %d\n", win_count, loss_count);
