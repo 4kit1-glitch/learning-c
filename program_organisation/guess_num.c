@@ -8,7 +8,6 @@
 #define MAX_NUMBER 100
 
 int secret_number;  //number to guess
-int num_guesses;
 
 void front_end();
 void initialize_number_generator();
@@ -44,8 +43,9 @@ void get_secret_number() {
     secret_number = 1 + rand() % MAX_NUMBER;
 }
 void read_guesses() {
+    int num_guesses, guess;
+
     num_guesses = 0;
-    int guess;
     while (1) {
         num_guesses++;
 
