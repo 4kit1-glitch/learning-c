@@ -87,7 +87,7 @@ void make_empty() {
     printf("\nEmptied the stack\n");
 }
 bool is_empty() {
-  return top == STACK_SIZE;
+  return top == 0;
 }
 bool is_full() {
     return top == STACK_SIZE;
