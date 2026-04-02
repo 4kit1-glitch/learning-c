@@ -11,17 +11,13 @@ char contents[STACK_SIZE];
 
 //operations prototypes
 void front_end();
-void stack_status();
-void print_stack();
-void add_element();
-void make_empty();
-bool is_empty();
-bool is_full();
-int push(int value);
-int pop();
-
 void stack_overflow();
 void stack_underflow();
+void wrong_order();
+void push(char value);
+char pop();
+bool is_empty();
+bool is_full();
 
 int main() {
     front_end();
@@ -29,46 +25,64 @@ int main() {
 }
 
 void front_end() {
-    char parenthensis;
+    char input;
 
-    printf("Enter the parenthensis() or {} only: ");
-    parenthensis = getchar();
+    printf("Enter the parenthensis - () or {} only: ");
+    scanf("%c", &input);
 
-    while (parenthensis != '\n') {
-        push(parenthensis);
+    while (1) {
+        if (input == '\n') {
+            break;
+        }
+        if (input == '{' || input == '(') {
+            push(input);
+        } else if (input == '}') {
+            switch (pop()) {
+                case '(': wrong_order(); break;
+                default: break;
+            }
+        } else if (input == ')') {
+            switch (pop()) {
+                case '{': wrong_order(); break;
+                default: break;
+            }
+        }
+        scanf("%c", &input);
     }
-    
+    printf("Correct order!!!\n");
+    return;
 }
 
-//mask function groups
-void print_stack() {
-    putchar('[');
-    for (int i = 0; i < top; i++) {
-        printf("%d, ", contents[i]);
-    }
-    putchar(']');
-}
 
-//stack operations
-void make_empty() {
-    top = 0;
-    printf("\nEmptied the stack\n");
-}
 bool is_empty() {
   return top == 0;
 }
 bool is_full() {
     return top == STACK_SIZE;
 }
-int push(int value) {
+void push(char value) {
     if (is_full()) {
-
+        stack_overflow();
     }
     contents[top++] = value;
 }
-int pop() {
+char pop() {
     if (is_empty()) {
-        return -1;
+        stack_underflow();
     }
     return contents[--top];
+}
+
+//error checks
+void wrong_order() {
+    printf("wrong order\n");
+    exit(EXIT_SUCCESS);
+}
+void stack_overflow() {
+    printf("stack is full");
+    exit(EXIT_FAILURE);
+}
+void stack_underflow() {
+    printf("No element in stack");
+    exit(EXIT_FAILURE);
 }
