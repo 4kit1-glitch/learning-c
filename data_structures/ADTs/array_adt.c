@@ -14,6 +14,7 @@ int size = 0, position;
 void insertion(int value, int idx);
 void deletion(int idx);
 void update(int value, int idx);
+int search(int idx);
 void traverse();
 
 // error handling
@@ -37,8 +38,9 @@ void front_end() {
         printf("1. insert\n");
         printf("2. delete\n");
         printf("3. update\n");
-        printf("4. print elements\n");
-        printf("5. exit\n");
+        printf("4. search\n");
+        printf("5. print elements\n");
+        printf("6. exit\n");
         printf("============================\n");
 
         printf("select an option\n: ");
@@ -73,11 +75,19 @@ void front_end() {
             break;
 
             case 4:
-                printf("the elements: ");
+                printf("enter the index you wanna see: ");
+                scanf("%d", &idx);
+
+                printf("value: %d", search(idx));
+            break;
+            
+            case 5:
+                printf("0 reps an empty position\n");
+                printf("\nthe elements: ");
                 traverse();
             break;
 
-            case 5: exit(EXIT_SUCCESS); break;
+            case 6: exit(EXIT_SUCCESS); break;
 
             default: printf("invalid option\n\n"); break;
         }
@@ -103,7 +113,16 @@ void insertion(int value, int idx) {
     contents[idx] = value;
 }
 void deletion(int idx) {
+    if (idx > ARR_SIZE) {
+        underflow_err();
+    }
+    position = idx;
 
+    while(position < ARR_SIZE) {
+        contents[position] = contents[position + 1];
+        position++;
+    }
+    contents[ARR_SIZE - 1] = 0;
 }
 void update(int value, int idx) {
 
@@ -120,9 +139,12 @@ void traverse() {
 bool is_full() {
     return size == ARR_SIZE;
 }
-
 void overflow_err() {
     printf("Array is full!!\n");
+    exit(EXIT_FAILURE);
+}
+void underflow_err() {
+    printf("no element to remove");
     exit(EXIT_FAILURE);
 }
 
