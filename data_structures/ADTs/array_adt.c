@@ -6,7 +6,7 @@
 
 #define ARR_SIZE 9
 
-int contents[ARR_SIZE];
+int contents[ARR_SIZE] = {0};
 int size = 0, position;
 
 
@@ -33,7 +33,7 @@ void front_end() {
     int response, idx, value;
 
     do {
-        printf("welcome\n============================\n");
+        printf("\n============================\n");
         printf("1. insert\n");
         printf("2. delete\n");
         printf("3. update\n");
@@ -78,8 +78,8 @@ void front_end() {
             break;
 
             case 5: exit(EXIT_SUCCESS); break;
-            
-            default: printf("invalid option\n"); break;
+
+            default: printf("invalid option\n\n"); break;
         }
 
     }
@@ -94,7 +94,7 @@ void insertion(int value, int idx) {
     }
 
     position = ARR_SIZE;
-    size += 1;
+    size++;
     
     while (position >= idx) {
         position--;
@@ -102,13 +102,20 @@ void insertion(int value, int idx) {
     }
     contents[idx] = value;
 }
+void deletion(int idx) {
+
+}
+void update(int value, int idx) {
+
+}
 void traverse() {
     putchar('[');
-    for (int i = 0; i <= size; i++) {
-        printf("%d", contents[i]);
+    for (int i = 0; i < ARR_SIZE; i++) {
+        printf("%d, ", contents[i]);
     }
     putchar(']');
 }
+
 
 bool is_full() {
     return size == ARR_SIZE;
