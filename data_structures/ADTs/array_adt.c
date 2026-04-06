@@ -30,35 +30,56 @@ int main() {
 }
 
 void front_end() {
-    int response;
+    int response, idx, value;
 
-    printf("welcome\n============================\n");
-    printf("1. insert\n");
-    printf("2. delete\n");
-    printf("4. update\n");
-    printf("3. print elements\n");
-    printf("5. exit\n");
-    printf("============================\n");
+    do {
+        printf("welcome\n============================\n");
+        printf("1. insert\n");
+        printf("2. delete\n");
+        printf("3. update\n");
+        printf("4. print elements\n");
+        printf("5. exit\n");
+        printf("============================\n");
 
-    printf("select an option\n: ");
-    scanf("%d", &response);
+        printf("select an option\n: ");
+        scanf("%d", &response);
 
-    switch (response) {
-    case 1: 
-        int idx, value;
+        switch (response) {
+            case 1: 
+                printf("enter the index to insert into: ");
+                scanf("%d", &idx);
 
-        printf("enter the index to insert into: ");
-        scanf("%d", &idx);
+                printf("Enter the value to add: ");
+                scanf("%d", &value);
 
-        printf("Enter the value to add: ");
-        scanf("%d", &value);
+                insertion(value, idx);
+            break;
 
-        insertion(value, idx);
-    break;
-    
-    default:
-        break;
+            case 2:
+                printf("enter the index of the element you wanna remove: ");
+                scanf("%d", &idx);
+
+                deletion(idx);
+            break;
+
+            case 3:
+                printf("enter the index you wanna update");
+                scanf("%d", &idx);
+
+                printf("enter the value to update with: ");
+                scanf("%d", &value);
+
+                update(value, idx);
+            break;
+
+            case 4: traverse(); break;
+            case 5: exit(EXIT_SUCCESS); break;
+            default: printf("invalid option\n"); break;
+        }
+
     }
+    while(true);
+    
 }
 
 
