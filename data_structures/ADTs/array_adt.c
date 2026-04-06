@@ -80,7 +80,7 @@ void front_end() {
 
                 printf("value: %d", search(idx));
             break;
-            
+
             case 5:
                 printf("0 reps an empty position\n");
                 printf("\nthe elements: ");
@@ -125,7 +125,16 @@ void deletion(int idx) {
     contents[ARR_SIZE - 1] = 0;
 }
 void update(int value, int idx) {
-
+    if (idx >= ARR_SIZE) {
+        overflow_err();
+    }
+    contents[idx] = value;
+}
+int search(int idx) {
+    if (idx >=  ARR_SIZE || idx < 0) {
+        underflow_err();
+    }
+    return contents[idx];
 }
 void traverse() {
     putchar('[');
@@ -144,7 +153,7 @@ void overflow_err() {
     exit(EXIT_FAILURE);
 }
 void underflow_err() {
-    printf("no element to remove");
+    printf("no element!!\n");
     exit(EXIT_FAILURE);
 }
 
