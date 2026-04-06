@@ -9,7 +9,7 @@ int word_lenght(char word[]);
 bool is_anagram1(int freq_arr[]);
 void frequency(char word1[], char word2[], int freq_arr[]);
 
-int main(){
+int main() {
     char word1[50];
     char word2[50];
     int freq_arr[SIZE] = {0};
@@ -18,10 +18,10 @@ int main(){
     
     frequency(word1, word2, freq_arr);
 
-    if(is_anagram1(freq_arr)){
+    if (is_anagram1(freq_arr)) {
         printf("anagrams\n");
     }
-    else{
+    else {
         printf("not anagrmans\n");
     }
     
@@ -29,7 +29,7 @@ int main(){
     return 0;
 }
 
-void input(char word1[], char word2[]){
+void input(char word1[], char word2[]) {
     char ch;
     int i = 0;
     int j = 0;
@@ -37,7 +37,7 @@ void input(char word1[], char word2[]){
     printf("enter the first word: ");
     ch = getchar();
 
-    while(ch != '\n'){
+    while (ch != '\n') {
         word1[i] = tolower(ch);
         ch = getchar();
         i++;
@@ -46,16 +46,16 @@ void input(char word1[], char word2[]){
     printf("enter the second word: ");
     ch = getchar();
     
-    while(ch != '\n'){
+    while (ch != '\n') {
         word2[j] = tolower(ch);
         ch = getchar();
         j++;
     }
 
 }
-int word_lenght(char word[]){
+int word_lenght(char word[]) {
     int lenght = 0;
-    for(int i = 0; ; i++){
+    for (int i = 0; ; i++) {
         if(word[i] == '\0'){
             break;
         }
