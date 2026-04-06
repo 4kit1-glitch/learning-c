@@ -6,7 +6,7 @@
 
 #define ARR_SIZE 9
 
-int contents[ARR_SIZE] = {0};
+int contents[ARR_SIZE];
 int size = 0, position;
 
 
@@ -72,8 +72,13 @@ void front_end() {
                 update(value, idx);
             break;
 
-            case 4: traverse(); break;
+            case 4:
+                printf("the elements: ");
+                traverse();
+            break;
+
             case 5: exit(EXIT_SUCCESS); break;
+            
             default: printf("invalid option\n"); break;
         }
 
@@ -96,6 +101,13 @@ void insertion(int value, int idx) {
         contents[position + 1] = contents[position];
     }
     contents[idx] = value;
+}
+void traverse() {
+    putchar('[');
+    for (int i = 0; i <= size; i++) {
+        printf("%d", contents[i]);
+    }
+    putchar(']');
 }
 
 bool is_full() {
